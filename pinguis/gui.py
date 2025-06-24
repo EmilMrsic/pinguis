@@ -12,8 +12,8 @@ try:
 except Exception:  # pragma: no cover - streamlit may be missing in tests
     st = None
 
-from .decoder import decode_frame, BYTES_PER_SAMPLE
-from .serial_utils import list_serial_ports, open_serial_port
+from pinguis.decoder import decode_frame, BYTES_PER_SAMPLE
+from pinguis.serial_utils import list_serial_ports, open_serial_port
 
 
 class SerialReader:
@@ -96,7 +96,8 @@ class SerialReader:
             if arr.size == 0:
                 rms.append(0.0)
             else:
-                rms.append(float(np.sqrt(np.mean(np.square(arr)))))
+                value = np.mean(np.square(arr))
+                rms.append(float(np.sqrt(value)) if value >= 0 else 0.0)
         return rms
 
 
@@ -135,7 +136,7 @@ def main() -> None:
             rms = st.session_state.reader.get_rms()
             status_area.write(" ".join(f"Ch{i+1}:{r:.1f}" for i, r in enumerate(rms)))
         time.sleep(update_ms / 1000)
-        st.experimental_rerun()
+        st.rerun()
 
 
 if __name__ == "__main__":  # pragma: no cover - manual launch
