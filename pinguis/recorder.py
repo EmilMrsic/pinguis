@@ -81,7 +81,7 @@ class EEGRecorder:
                 samples.append(decoded)
         return samples
 
-    def record_to_file(self, output_file: str, duration: float = 10) -> None:
+    def record_to_file(self, output_file: str, duration: float = 10, gain: float = 1.0) -> None:
         if self.port_name is None:
             ports = list_serial_ports()
             if not ports:
@@ -95,7 +95,7 @@ class EEGRecorder:
         signals = []
         for ch in range(self.num_channels):
             signals.append(np.array([s[ch] for s in sample_list], dtype=np.int32))
-        write_edf(output_file, signals, self.sample_rate)
+        write_edf(output_file, signals, self.sample_rate, gain=gain)
 
-def record(output_file: str, duration: float = 10, port: Optional[str] = None) -> None:
-    EEGRecorder(port=port).record_to_file(output_file, duration)
+def record(output_file: str, duration: float = 10, port: Optional[str] = None, gain: float = 1.0) -> None:
+    EEGRecorder(port=port).record_to_file(output_file, duration, gain=gain)
