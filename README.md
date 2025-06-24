@@ -45,16 +45,16 @@ streamlit run pinguis/gui.py
 
 ---
 
-## 🚧 Milestone 3: Recording & Mapping Enhancements (Planned)
+## 🚧 Milestone 3: Recording & Mapping Enhancements
 
-### Objectives
-- Add real-time EDF+ recording toggle in the GUI
-- Support EDF file saving while streaming
-- Introduce CSV export for post-processing workflows
-- Improve UI layout and channel scaling controls
-- Add head-map style channel visualizer (basic scalp topology)
-- Add timestamp overlay or marker injection system
-- Add signal quality estimation (flatlines, high noise)
+### Highlights
+- Real-time EDF+ recording toggle in the GUI
+- EDF file saving while streaming
+- CSV export for post-processing
+- Improved layout and scaling controls
+- Basic head-map visualizer
+- Marker injection system
+- Signal quality estimates
 
 ---
 
@@ -64,6 +64,9 @@ Pinguis is now capable of:
 - Reading and decoding serial EEG signals
 - Saving raw EEG data to industry-standard `.edf` files
 - Visualizing signals in real-time with an interactive UI
+- Recording sessions directly from the GUI
+- Exporting data to CSV for offline analysis
+- Visualizing channel placement with a simple head map
 
 ---
 
