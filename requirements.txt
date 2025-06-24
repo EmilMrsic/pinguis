@@ -1,3 +1,4 @@
 pyserial
 pyedflib
 numpy
+streamlit
