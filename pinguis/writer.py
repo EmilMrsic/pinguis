@@ -25,7 +25,7 @@ def write_edf(filename: str, signals: List[np.ndarray], sample_rate: int) -> Non
             headers.append({
                 "label": f"Ch{i+1}",
                 "dimension": "uV",
-                "sample_rate": sample_rate,
+                "sample_frequency": sample_rate,
             })
         writer.setSignalHeaders(headers)
         writer.writeSamples(signals)
