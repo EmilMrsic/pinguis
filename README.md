@@ -1,6 +1,6 @@
 # Pinguis: Command-Line EEG Recorder
 
-Pinguis is a cross-platform CLI tool that captures raw EEG signals from a USB CDC device, decodes them, and saves the output as EDF+ files.
+Pinguis is a cross-platform EEG toolkit that can record from serial devices and now includes a simple real-time GUI built with Streamlit.
 
 ## Milestone 1: macOS CLI Prototype
 
@@ -39,6 +39,13 @@ This first milestone is focused on building a command-line EEG recording utility
 6. **Validation**
    - Compare generated EDF+ files against known-good reference
    - Confirm integrity of header and sample data
+
+## Real-Time GUI
+
+The `pinguis.gui` module offers a basic Streamlit application for monitoring
+incoming EEG data live. Run the app with `streamlit run -m pinguis.gui` and
+select the desired serial port. The GUI plots the most recent few seconds of
+data for each channel and displays a simple RMS indicator.
 
 ---
 
